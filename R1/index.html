@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cats</title>
+  <script
+          crossorigin
+          src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+          crossorigin
+          src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <style>
+    .red {
+      color: red;
+    }
+
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body>
+<div id="dominator"></div>
+
+<script>
+  const Cats = (props) => {
+    return React.createElement("article", {}, [
+      React.createElement("h2", {}, props.name),
+      React.createElement("p", {}, props.country),
+      React.createElement("p", {}, props.wool),
+      React.createElement("p", {}, props.lifetime),
+    ]);
+  }
+
+  const cat = [
+    {
+      name: "Мeйн-кун",
+      country: "Соединенные Штаты Америки",
+      wool: "Шерсть средней длины",
+      lifetime: "12–15 лет",
+    },
+    {
+      name: "Абиссинская кошка",
+      country: "Эфиопия",
+      wool: "Шерсть средней длины",
+      lifetime: "12–16 лет",
+    },
+    {
+      name: "Британская длинношерстная",
+      country: "Великобритания",
+      wool: "Длинная шерсть",
+      lifetime: "15-17 лет",
+    },
+    {
+      name: "Персидская",
+      country: "Древняя Персия (Большой Иран)",
+      wool: "Длинная шерсть",
+      lifetime: "12–17 лет",
+    },
+    {
+      name: "Австралийская дымчатая кошка",
+      country: "Австралия",
+      wool: "Шерсть короткая",
+      lifetime: "12–15 лет",
+    },
+  ];
+
+  const catArr = cat.map(({ name, year, country, wool, lifetime }) => {
+    return React.createElement(Cats, { name, year, country, wool, lifetime });
+  });
+
+  const ROOT_DOM = document.querySelector("#dominator");
+  const root = ReactDOM.createRoot(ROOT_DOM);
+  root.render(React.createElement("main", {}, catArr));
+</script>
+</body>
+</html>
